@@ -1,0 +1,63 @@
+import pyttsx3
+import schedule
+import time
+
+#welcome
+#At the first we will be welcome by the code
+audio2 = pyttsx3.init()
+audio2.say("hello mummy, time is set, i will remind you to take medicine on time")
+audio2.runAndWait()
+
+#this function is used to take medicine at 9.am
+def time1():
+    audio1=pyttsx3.init()
+    audio1.say("hello, its time for the first medicine")
+    audio1.runAndWait()
+
+    schedule.every().day.at('09:00').do(time1)
+
+#this is second time for taking medicine at 12pm
+    def time2():
+        audio3 = pyttsx3.init()
+        audio3.say("hello mummy, time to take the second medicine")
+        audio3.runAndWait()
+    schedule.every().day.at('12:00').do(time2)
+
+#this is time to take the third medicine at 3pm
+    def time3():
+        audio4 = pyttsx3.init()
+        audio4.say("hello mummy, its time for third medicine  ")
+        audio4.runAndWait()
+    schedule.every().day.at('15:00').do(time3)
+
+
+schedule.every(24).hours.do(time1)
+while 1:
+    schedule.run_pending()
+    time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
